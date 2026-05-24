@@ -1,0 +1,86 @@
+:root {
+  --dark-text: #1f2937;
+  --gray-text: #5f6c7b;
+  --gradient-colour: #e5efed;
+  --light-green: #dfe8dd;
+  --dark-green: #2f4f3e;
+}
+
+body {
+  background-image: url("images/leaves.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+h1, h2, .navbar-brand {
+  font-family: 'Playfair Display', serif;
+}
+
+.project-page {
+  color: white;
+}
+
+.navbar {
+  background-color: white;
+}
+
+.intro-section {
+  background: linear-gradient(135deg, white, var(--gradient-colour));
+  padding: 70px 24px;
+  border-radius: 18px;
+  margin-bottom: 40px;
+}
+
+.intro-section h1 {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.intro-label {
+  color: var(--dark-green);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 13px;
+}
+
+.photo-gallery {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.photo-gallery img {
+  height: 250px;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+section {
+  background-color: white;
+  padding: 28px;
+  border-radius: 18px;
+  margin-bottom: 32px;
+}
+
+.card {
+  border-radius: 18px;
+  border: 1px solid #e5e7eb;
+  
+}
+
+.card img {
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 24px;
+}
+
+.btn-dark {
+  border-radius: 999px;
+}
