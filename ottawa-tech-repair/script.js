@@ -82,10 +82,10 @@ function confirmationPage() {
       <h1 class="page-title">Appointment Confirmed!</h1>
       <p class="page-subtitle">Thank you, ${firstName}! Your appointment has been successfully booked.</p>
       <section class="summary-card">
-        <div><span>▣</span><b>Service:</b><span>${booking.service}</span></div>
+        <div><span>🔧</span><b>Service:</b><span>${booking.service}</span></div>
         <div><span>📅</span><b>Date:</b><span>${date}</span></div>
-        <div><span>◷</span><b>Time:</b><span>${time}</span></div>
-        <div><span>◎</span><b>Reference #:</b><span>TR-1023</span></div>
+        <div><span>🕒</span><b>Time:</b><span>${time}</span></div>
+        <div><span>🏷️</span><b>Reference #:</b><span>TR-1023</span></div>
       </section>
       <button class="primary back" data-page="home">Back to Home</button>
     </section>`;
