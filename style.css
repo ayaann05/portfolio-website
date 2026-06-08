@@ -84,3 +84,19 @@ section {
 .btn-dark {
   border-radius: 999px;
 }
+.case-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 24px;
+  height: 100%;
+  background: #ffffff;
+}
+
+.case-card h3 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+}
+
+.btn-outline-dark {
+  border-radius: 999px;
+}
