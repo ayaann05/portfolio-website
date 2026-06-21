@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brain Trail</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="side-nav">
+      <div class="brand">
+        <img src="../images/brain-trail-logo.png" alt="Brain Trail logo">
+      </div>
+
+      <button class="nav-item active"><span>🏠</span> Home</button>
+      <button class="nav-item"><span>📈</span> Stats</button>
+      <button class="nav-item"><span>🕒</span> History</button>
+      <button class="nav-item"><span>⚙️</span> Settings</button>
+      <button class="nav-item"><span>❔</span> Help</button>
+    </aside>
+
+    <main class="main">
+      <header class="top-bar">
+        <div>
+          <h1>Brain Trail</h1>
+          <p>Train your memory. Challenge yourself.</p>
+        </div>
+        <div class="top-actions">
+          <button id="soundBtn" class="sound-btn" title="Sound on/off">🔊</button>
+          <div class="user-label">Welcome back</div>
+        </div>
+      </header>
+
+      <div id="screen"></div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
