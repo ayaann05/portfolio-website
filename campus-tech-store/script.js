@@ -6,8 +6,7 @@ const h = React.createElement;
 const products = [
   {
     id: 1,
-    name: 'StudyBuds Wireless Headphones',
-    category: 'Audio',
+    name: 'Sony StudyBuds Wireless Headphones',
     brand: 'Sony',
     price: 74.99,
     rating: 4.6,
@@ -18,18 +17,16 @@ const products = [
   {
     id: 2,
     name: 'Foldable Laptop Stand',
-    category: 'Desk Setup',
     brand: 'Generic',
     price: 32.99,
-    rating: 4.3,
+    rating: 3.8,
     useCase: 'Desk Setup',
     emoji: '💻',
     description: 'A simple adjustable stand that helps raise your laptop screen during long work sessions.'
   },
   {
     id: 3,
-    name: 'Compact Bluetooth Keyboard',
-    category: 'Keyboards',
+    name: 'Logitech Compact Bluetooth Keyboard',
     brand: 'Logitech',
     price: 49.99,
     rating: 4.5,
@@ -39,8 +36,7 @@ const products = [
   },
   {
     id: 4,
-    name: '30W USB-C Fast Charger',
-    category: 'Chargers',
+    name: 'Anker 30W USB-C Fast Charger',
     brand: 'Anker',
     price: 27.99,
     rating: 4.8,
@@ -50,19 +46,17 @@ const products = [
   },
   {
     id: 5,
-    name: 'Wireless Mouse',
-    category: 'Mice',
+    name: 'Logitech Wireless Mouse',
     brand: 'Logitech',
     price: 22.99,
-    rating: 4.2,
+    rating: 3.6,
     useCase: 'Desk Setup',
     emoji: '🖱️',
     description: 'A basic wireless mouse for people who do not want to use a trackpad all day.'
   },
   {
     id: 6,
-    name: '128GB USB-C Flash Drive',
-    category: 'Storage',
+    name: 'SanDisk 128GB USB-C Flash Drive',
     brand: 'SanDisk',
     price: 19.99,
     rating: 4.4,
@@ -72,8 +66,7 @@ const products = [
   },
   {
     id: 7,
-    name: '10K Portable Battery Pack',
-    category: 'Chargers',
+    name: 'Anker 10K Portable Battery Pack',
     brand: 'Anker',
     price: 44.99,
     rating: 4.7,
@@ -84,7 +77,6 @@ const products = [
   {
     id: 8,
     name: 'Large Desk Mat',
-    category: 'Desk Setup',
     brand: 'Generic',
     price: 18.99,
     rating: 4.1,
@@ -233,7 +225,11 @@ function Header({ page, setPage, itemCount }) {
   return h('header', null,
     h('div', { className: 'header-wrap' },
       h('button', { className: 'logo', onClick: () => setPage('shop') },
-        h('span', null, '💻'),
+        h('img', {
+          src: '../images/techstore-logo.png',
+          alt: 'Campus Tech Store logo',
+          className: 'logo-img'
+        }),
         h('div', null,
           h('strong', null, 'CampusTech Store'),
           h('small', null, 'student tech accessories')
@@ -252,7 +248,6 @@ function ShopPage({ filters, changeFilter, clearFilters, filteredProducts, expan
   return h(React.Fragment, null,
     h('section', { className: 'hero' },
       h('div', null,
-        h('p', { className: 'tag' }, 'Back-to-school deals'),
         h('h1', null, 'Useful tech for students without making shopping complicated.'),
         h('p', null, 'Browse affordable accessories for studying, gaming, commuting, and building a better desk setup.'),
         h('a', { href: '#products', className: 'main-link' }, 'Shop the deals')
@@ -336,7 +331,6 @@ function ProductCard({ product, expanded, onToggle, onAdd }) {
       h('span', null, `★ ${product.rating}`)
     ),
     h('div', { className: 'card-actions' },
-      h('button', { className: 'secondary', onClick: onToggle }, expanded ? 'Hide details' : 'More info'),
       h('button', { onClick: onAdd }, 'Add to cart')
     )
   );
@@ -370,7 +364,6 @@ function CartPage({ cart, total, updateQty, removeFromCart, startCheckout, setPa
           )
         ),
     h('div', { className: 'page-actions' },
-      h('button', { className: 'secondary', onClick: () => setPage('shop') }, 'Keep shopping'),
       h('button', { onClick: startCheckout }, 'Start checkout')
     )
   );
@@ -460,8 +453,7 @@ function ReviewOrder({ cart, total, info }) {
 function Confirmation({ total, setPage }) {
   return h('div', { className: 'confirmation' },
     h('h2', null, 'Order confirmed!'),
-    h('p', null, `Thanks for shopping with CampusTech Store. Your prototype total was ${money(total)}.`),
-    h('p', null, 'A real site would send an email receipt here.'),
+    h('p', null, `Thanks for shopping with CampusTech Store. Your total was ${money(total)}.`),
     h('button', { onClick: () => setPage('survey') }, 'Fill out the survey')
   );
 }
@@ -477,7 +469,7 @@ function SurveyPage({ survey, setSurvey, submitSurvey, surveyDone }) {
     surveyDone
       ? h('div', { className: 'confirmation' },
           h('h2', null, 'Thank you!'),
-          h('p', null, 'Your feedback was submitted in this prototype.')
+          h('p', null, 'Your feedback was submitted.')
         )
       : h('form', { onSubmit: submitSurvey, className: 'survey-form' },
           h(SelectField, { label: 'Overall rating', value: survey.rating, options: ['5', '4', '3', '2', '1'], onChange: value => update('rating', value) }),

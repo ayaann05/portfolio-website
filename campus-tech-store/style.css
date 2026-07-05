@@ -5,7 +5,7 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: #f4f6fb;
+  background: #d9c7f988;
   color: #1f2937;
 }
 
@@ -24,6 +24,18 @@ button {
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
 }
 
 button:hover {
