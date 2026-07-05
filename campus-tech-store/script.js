@@ -94,7 +94,6 @@ const products = [
   }
 ];
 
-const categories = [...new Set(products.map(p => p.category))];
 const brands = [...new Set(products.map(p => p.brand))];
 const uses = [...new Set(products.map(p => p.useCase))];
 
@@ -113,11 +112,9 @@ function App() {
   const [errors, setErrors] = useState('');
   const [filters, setFilters] = useState({
     search: '',
-    category: 'All',
     brand: 'All',
     useCase: 'All',
     price: 'All',
-    rating: '0',
     sort: 'name'
   });
   const [info, setInfo] = useState({ name: '', email: '', address: '', city: '', postal: '' });
@@ -128,17 +125,15 @@ function App() {
     let list = products.filter(product => {
       const searchMatch = product.name.toLowerCase().includes(filters.search.toLowerCase()) ||
         product.description.toLowerCase().includes(filters.search.toLowerCase());
-      const categoryMatch = filters.category === 'All' || product.category === filters.category;
       const brandMatch = filters.brand === 'All' || product.brand === filters.brand;
       const useMatch = filters.useCase === 'All' || product.useCase === filters.useCase;
-      const ratingMatch = product.rating >= Number(filters.rating);
       let priceMatch = true;
 
       if (filters.price === 'under25') priceMatch = product.price < 25;
       if (filters.price === '25to50') priceMatch = product.price >= 25 && product.price <= 50;
       if (filters.price === 'over50') priceMatch = product.price > 50;
 
-      return searchMatch && categoryMatch && brandMatch && useMatch && ratingMatch && priceMatch;
+      return searchMatch && brandMatch && useMatch && priceMatch;
     });
 
     if (filters.sort === 'low') list.sort((a, b) => a.price - b.price);
@@ -157,7 +152,7 @@ function App() {
   }
 
   function clearFilters() {
-    setFilters({ search: '', category: 'All', brand: 'All', useCase: 'All', price: 'All', rating: '0', sort: 'name' });
+    setFilters({ search: '', brand: 'All', useCase: 'All', price: 'All', sort: 'name' });
   }
 
   function addToCart(product) {
@@ -301,15 +296,11 @@ function FilterPanel({ filters, changeFilter, clearFilters }) {
         placeholder: 'headphones, charger...'
       })
     ),
-    h(SelectField, { label: 'Category', value: filters.category, options: ['All', ...categories], onChange: value => changeFilter('category', value) }),
     h(SelectField, { label: 'Brand', value: filters.brand, options: ['All', ...brands], onChange: value => changeFilter('brand', value) }),
     h(SelectField, { label: 'Use case', value: filters.useCase, options: ['All', ...uses], onChange: value => changeFilter('useCase', value) }),
     h(SelectField, { label: 'Price', value: filters.price, options: [
       ['All', 'Any price'], ['under25', 'Under $25'], ['25to50', '$25 to $50'], ['over50', 'Over $50']
     ], onChange: value => changeFilter('price', value) }),
-    h(SelectField, { label: 'Minimum rating', value: filters.rating, options: [
-      ['0', 'Any rating'], ['4', '4 stars and up'], ['4.5', '4.5 stars and up']
-    ], onChange: value => changeFilter('rating', value) }),
     h(SelectField, { label: 'Sort by', value: filters.sort, options: [
       ['name', 'Name'], ['low', 'Price: low to high'], ['high', 'Price: high to low'], ['rating', 'Rating']
     ], onChange: value => changeFilter('sort', value) }),
