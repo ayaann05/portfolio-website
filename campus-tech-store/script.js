@@ -318,14 +318,8 @@ function SelectField({ label, value, options, onChange }) {
 function ProductCard({ product, expanded, onToggle, onAdd }) {
   return h('article', { className: 'product-card' },
     h('div', { className: 'product-emoji' }, product.emoji),
-    h('p', { className: 'category' }, product.category),
     h('h3', null, product.name),
     h('p', null, product.description),
-    expanded && h('ul', { className: 'details' },
-      h('li', null, `Brand: ${product.brand}`),
-      h('li', null, `Best for: ${product.useCase}`),
-      h('li', null, `Rating: ${product.rating}/5`)
-    ),
     h('div', { className: 'card-bottom' },
       h('strong', null, money(product.price)),
       h('span', null, `★ ${product.rating}`)

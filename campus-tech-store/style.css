@@ -147,16 +147,6 @@ nav button:hover {
   line-height: 1.5;
 }
 
-.tag {
-  display: inline-block;
-  background: #dbeafe;
-  color: #1e40af;
-  padding: 6px 10px;
-  border-radius: 20px;
-  font-weight: bold;
-  margin: 0;
-}
-
 .main-link {
   display: inline-block;
   background: #2563eb;
@@ -269,13 +259,6 @@ textarea {
   display: grid;
   place-items: center;
   margin-bottom: 12px;
-}
-
-.category {
-  color: #2563eb;
-  font-weight: 700;
-  margin: 0 0 4px;
-  font-size: 14px;
 }
 
 .product-card h3 {
@@ -411,14 +394,6 @@ textarea {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 6px 16px;
-}
-
-.note {
-  background: #fff7ed;
-  border: 1px solid #fed7aa;
-  padding: 12px;
-  border-radius: 8px;
-  color: #9a3412;
 }
 
 .error {
